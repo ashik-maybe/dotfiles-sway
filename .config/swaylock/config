@@ -1,0 +1,40 @@
+# ==============================================================================
+# NATIVE SWAYLOCK CONFIG (Clean Stock Minimalist Edition)
+# ==============================================================================
+
+# Background Color (Deep Midnight Charcoal)
+color=11111be0
+
+# Typography Strategy
+font=Arimo Nerd Font
+font-size=14
+
+# Hide basic text hints to keep the UI perfectly clean
+disable-caps-lock-text
+no-unlock-indicator
+
+# Ring & Indicator Layout Geometry
+indicator
+indicator-radius=90
+indicator-thickness=8
+
+# --- Theme Color Mapping (Catppuccin Midnight Palette) ---
+
+# Inside Circle Colors
+inside-color=1e1e2e
+inside-clear-color=a6e3a1
+inside-ver-color=89b4fa
+inside-wrong-color=f38ba8
+
+# Outer Ring Colors
+ring-color=313244
+ring-clear-color=a6e3a1
+ring-ver-color=89b4fa
+ring-wrong-color=f38ba8
+
+# Key Highlight / Typing feedback colors
+key-hl-color=f9e2af
+bs-hl-color=f38ba8
+
+# Layout / Text Border Adjustments
+line-uses-inside

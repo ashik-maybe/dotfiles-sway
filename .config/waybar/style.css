@@ -1,0 +1,145 @@
+/* ==============================================================================
+ * WAYBAR STYLE SHEET (Catppuccin Midnight Theme)
+ * ============================================================================== */
+
+/* Master Reset & Font Strategy */
+* {
+    font-family: "Arimo Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* Base Bar Canvas Background */
+window#waybar {
+    background-color: #11111b; /* Pitch Dark */
+    color: #cdd6f4; /* Main font color */
+}
+
+/* Left Section: Workspaces Control Center */
+#workspaces {
+    background-color: #1e1e2e;
+    margin: 4px 4px;
+    border-radius: 8px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #6c7086; /* Inactive icons are muted */
+    font-size: 14px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button.focused {
+    color: #89b4fa; /* Premium Electric Blue for your active space */
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+#workspaces button.urgent {
+    color: #f38ba8; /* Hot Coral for system alerts */
+}
+
+#workspaces button:hover {
+    color: #f5e0dc; /* Soft Warm Highlight on hover */
+}
+
+/* Window Title Module */
+#window {
+    color: #b4befe; /* Elegant Lavender font for active titles */
+    padding: 0 12px;
+    font-weight: 500;
+}
+
+/* Center Section: Main System Clock Capsule */
+#clock {
+    color: #cdd6f4;
+    background-color: #1e1e2e;
+    padding: 0 16px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+/* Right Section: Core Capsule Layout Architecture */
+#idle_inhibitor,
+#pulseaudio,
+#backlight,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#battery.bat2,
+#scratchpad,
+#mode,
+#tray {
+    padding: 0 12px;
+    margin: 4px 2px;
+    background-color: #1e1e2e; /* Slate Capsule base */
+    border-radius: 8px;
+}
+
+/* --- Module Specific Color Profiles (Visual Glance Optimization) --- */
+
+/* Gnome Caffeine Module */
+#idle_inhibitor {
+    color: #fab387; /* Soft Orange outline when off */
+    font-size: 15px;
+}
+
+#idle_inhibitor.activated {
+    background-color: #fab387; /* Flashes vibrant solid orange when active */
+    color: #11111b; /* Contrast icon color */
+}
+
+/* Audio Panel */
+#pulseaudio {
+    color: #f9e2af; /* Light Amber Yellow */
+}
+
+/* Laptop Screen Brightness */
+#backlight {
+    color: #fab387; /* Pastel Orange */
+}
+
+/* Network Monitor Panel */
+#network {
+    color: #a6e3a1; /* Minty Green for data downstream text */
+}
+
+/* CPU Engine Performance */
+#cpu {
+    color: #89dceb; /* Electric Teal */
+}
+
+/* Memory Allocation Monitor */
+#memory {
+    color: #94e2d5; /* Soft Sage Green */
+}
+
+/* Hardware Thermal Unit */
+#temperature {
+    color: #eba0ac; /* Light Muted Red */
+}
+
+/* Laptop Power Matrix */
+#battery {
+    color: #cba6f7; /* Soft Purple */
+}
+
+#battery.warning {
+    color: #f38ba8; /* Changes to blinking warning pink/red when critically low */
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* System Auxiliary Component Tray */
+#tray {
+    background-color: #313244;
+}
