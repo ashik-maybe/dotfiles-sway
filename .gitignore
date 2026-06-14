@@ -1,0 +1,18 @@
+# Git itself
+.git/
+!.gitignore
+
+# --------------------------------------------------------------------
+# Font Sync Strategy: Ignore everything in fonts, except Arimo & JetBrainsMono
+# --------------------------------------------------------------------
+
+# 1. Ignore all contents inside the fonts directory
+.local/share/fonts/*
+
+# 2. Allow Git to see into these specific font folders
+!.local/share/fonts/Arimo/
+!.local/share/fonts/JetBrainsMono/
+
+# 3. Ensure all files inside those folders are tracked
+!.local/share/fonts/Arimo/**
+!.local/share/fonts/JetBrainsMono/**
