@@ -1,8 +1,36 @@
 /* ==============================================================================
- * WAYBAR STYLE SHEET (Catppuccin Midnight Theme)
+ * WAYBAR STYLE SHEET (Catppuccin Mocha Theme)
  * ============================================================================== */
 
-/* Master Reset & Font Strategy */
+/* Catppuccin Mocha Palette */
+@define-color rosewater #f5e0dc;
+@define-color flamingo  #f2cdcd;
+@define-color pink      #f5c2e7;
+@define-color mauve     #cba6f7;
+@define-color red       #f38ba8;
+@define-color maroon    #eba0ac;
+@define-color peach     #fab387;
+@define-color yellow    #f9e2af;
+@define-color green     #a6e3a1;
+@define-color teal      #94e2d5;
+@define-color sky       #89dceb;
+@define-color sapphire  #74c7ec;
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color text      #cdd6f4;
+@define-color subtext1  #bac2de;
+@define-color subtext0  #a6adc8;
+@define-color overlay2  #9399b2;
+@define-color overlay1  #7f849c;
+@define-color overlay0  #6c7086;
+@define-color surface2  #585b70;
+@define-color surface1  #45475a;
+@define-color surface0  #313244;
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+
+/* Reset & font defaults */
 * {
     font-family: "Arimo Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
@@ -12,15 +40,23 @@
     min-height: 0;
 }
 
-/* Base Bar Canvas Background */
-window#waybar {
-    background-color: #11111b; /* Pitch Dark */
-    color: #cdd6f4; /* Main font color */
+/* Tooltip */
+tooltip {
+    background: @base;
+    border: 2px solid @blue;
+    border-radius: 8px;
+    color: @text;
 }
 
-/* Left Section: Workspaces Control Center */
+/* Base Bar Canvas Background */
+window#waybar {
+    background-color: @crust;
+    color: @text;
+}
+
+/* Workspaces */
 #workspaces {
-    background-color: #1e1e2e;
+    background-color: @base;
     margin: 4px 4px;
     border-radius: 8px;
     padding: 0 4px;
@@ -28,42 +64,52 @@ window#waybar {
 
 #workspaces button {
     padding: 0 10px;
-    color: #6c7086; /* Inactive icons are muted */
+    color: @overlay0;
     font-size: 14px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #workspaces button.focused {
-    color: #89b4fa; /* Premium Electric Blue for your active space */
+    color: @blue;
     font-weight: bold;
     transform: scale(1.1);
 }
 
 #workspaces button.urgent {
-    color: #f38ba8; /* Hot Coral for system alerts */
+    color: @red;
 }
 
 #workspaces button:hover {
-    color: #f5e0dc; /* Soft Warm Highlight on hover */
+    color: @rosewater;
 }
 
 /* Window Title Module */
 #window {
-    color: #b4befe; /* Elegant Lavender font for active titles */
+    color: @lavender;
     padding: 0 12px;
     font-weight: 500;
 }
 
-/* Center Section: Main System Clock Capsule */
-#clock {
-    color: #cdd6f4;
-    background-color: #1e1e2e;
+/* Center section */
+#mpris {
+    color: @text;
+    background-color: @base;
     padding: 0 16px;
     margin: 4px 0;
     border-radius: 8px;
 }
 
-/* Right Section: Core Capsule Layout Architecture */
+#clock {
+    color: @text;
+    background-color: @base;
+    padding: 0 16px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+/* Right section modules */
+#privacy,
+#bluetooth,
 #idle_inhibitor,
 #pulseaudio,
 #backlight,
@@ -78,60 +124,94 @@ window#waybar {
 #tray {
     padding: 0 12px;
     margin: 4px 2px;
-    background-color: #1e1e2e; /* Slate Capsule base */
+    background-color: @base;
     border-radius: 8px;
 }
 
-/* --- Module Specific Color Profiles (Visual Glance Optimization) --- */
+/* --- Module Specific Color Profiles --- */
 
-/* Gnome Caffeine Module */
+/* Idle Inhibitor */
 #idle_inhibitor {
-    color: #fab387; /* Soft Orange outline when off */
+    color: @peach;
     font-size: 15px;
 }
 
 #idle_inhibitor.activated {
-    background-color: #fab387; /* Flashes vibrant solid orange when active */
-    color: #11111b; /* Contrast icon color */
+    background-color: @peach;
+    color: @crust;
 }
 
 /* Audio Panel */
 #pulseaudio {
-    color: #f9e2af; /* Light Amber Yellow */
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    color: @red;
 }
 
 /* Laptop Screen Brightness */
 #backlight {
-    color: #fab387; /* Pastel Orange */
+    color: @peach;
 }
 
-/* Network Monitor Panel */
+/* Privacy Indicators */
+#privacy {
+    color: @green;
+}
+
+#privacy:not(.screencast):not(.microphone):not(.camera) {
+    color: @overlay0;
+}
+
+/* Bluetooth Status */
+#bluetooth {
+    color: @blue;
+}
+
+#bluetooth.disabled {
+    color: @overlay0;
+}
+
+#bluetooth.off {
+    color: @red;
+}
+
+/* Network Monitor */
 #network {
-    color: #a6e3a1; /* Minty Green for data downstream text */
+    color: @green;
 }
 
-/* CPU Engine Performance */
+#network.disconnected {
+    color: @red;
+}
+
+/* CPU */
 #cpu {
-    color: #89dceb; /* Electric Teal */
+    color: @sky;
 }
 
-/* Memory Allocation Monitor */
+/* Memory Allocation */
 #memory {
-    color: #94e2d5; /* Soft Sage Green */
+    color: @teal;
 }
 
-/* Hardware Thermal Unit */
+/* Temperature */
 #temperature {
-    color: #eba0ac; /* Light Muted Red */
+    color: @maroon;
 }
 
-/* Laptop Power Matrix */
+#temperature.warning {
+    color: @peach;
+}
+
+/* Battery */
 #battery {
-    color: #cba6f7; /* Soft Purple */
+    color: @mauve;
 }
 
 #battery.warning {
-    color: #f38ba8; /* Changes to blinking warning pink/red when critically low */
+    color: @red;
     animation-name: blink;
     animation-duration: 1.5s;
     animation-timing-function: linear;
@@ -139,7 +219,11 @@ window#waybar {
     animation-direction: alternate;
 }
 
-/* System Auxiliary Component Tray */
+#battery.charging {
+    color: @green;
+}
+
+/* System Tray */
 #tray {
-    background-color: #313244;
+    background-color: @surface0;
 }

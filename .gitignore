@@ -16,3 +16,41 @@
 # 3. Ensure all files inside those folders are tracked
 !.local/share/fonts/Arimo/**
 !.local/share/fonts/JetBrainsMono/**
+
+# --------------------------------------------------------------------
+# Wallpapers: track only explicitly allowed files
+# https://github.com/orangci/walls-catppuccin-mocha
+# --------------------------------------------------------------------
+#
+#   HOW TO ADD A WALLPAPER:
+#     1. Copy your image into  Pictures/wallpapers/
+#     2. Add a line below like:  !Pictures/wallpapers/my-image.png
+#     3. Update the bg path in  .config/sway/config
+#
+# --------------------------------------------------------------------
+
+# Ignore everything inside Pictures/wallpapers/ by default
+Pictures/wallpapers/*
+
+# Allow specific wallpapers (add your wallpapers below)
+!Pictures/wallpapers/cabin.png
+
+# --------------------------------------------------------------------
+# Icons: track only explicitly allowed cursor themes
+# --------------------------------------------------------------------
+#
+#   HOW TO ADD A CURSOR THEME:
+#     1. Copy the theme folder into  .local/share/icons/
+#     2. Add lines below like:
+#          !.local/share/icons/my-cursor/
+#          !.local/share/icons/my-cursor/**
+#     3. Set the theme in  .config/sway/config  (xcursor_theme)
+#
+# --------------------------------------------------------------------
+
+# Ignore everything inside icons by default
+.local/share/icons/*
+
+# Allow specific cursor themes (add yours below)
+!.local/share/icons/catppuccin-mocha-dark-cursors/
+!.local/share/icons/catppuccin-mocha-dark-cursors/**

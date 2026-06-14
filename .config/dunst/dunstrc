@@ -1,26 +1,29 @@
 [global]
-    ### Display & Geometry Layout
+    ### Geometry
     monitor = 0
     follow = mouse
     width = 320
     height = 200
     origin = top-right
-    offset = 12x45 # Safely clears your top Waybar padding
+    offset = 12x45
     scale = 1
 
-    # Appearance Rules
+    # Behavior
     notification_limit = 4
     direction = down
     fixed_hz_order = true
+    stack_duplicates = true
+    history_length = 20
 
-    # Progress bar setups (Volume/Brightness indicators)
+    # Progress bar
     progress_bar = true
     progress_bar_height = 6
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 300
+    highlight = #89b4fa
 
-    ### Aesthetics & Frame Styles
+    ### Aesthetics
     transparency = 0
     gap_size = 4
     separator_height = 2
@@ -28,31 +31,32 @@
     horizontal_padding = 12
     text_icon_padding = 10
     frame_width = 2
-    frame_color = #89b4fa     # Catppuccin Blue Accent Frame
-    separator_color = #313244 # Slate Split Line
+    frame_color = #89b4fa
+    separator_color = frame
     corner_radius = 8
 
-    ### Typography Configuration
+    ### Typography
     font = Arimo Nerd Font 10
     line_height = 3
     markup = full
-    format = "<b>%s</b>\n%b" # Bold Title, standard body content
+    format = "<b>%s</b>\n%b"
     alignment = left
     show_age_threshold = 60
     word_wrap = true
+    ignore_newline = true
 
-    ### System Icons Strategy (Fedora Default Fallbacks)
+    ### Icon lookup
     enable_recursive_icon_lookup = true
     icon_position = left
     min_icon_size = 24
     max_icon_size = 48
 
-    ### Mouse & Interaction Mappings
+    ### Mouse
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
-# --- Urgency Color Mappings (Catppuccin Midnight Theme) ---
+# --- Urgency levels ---
 
 [urgency_low]
     background = #1e1e2e
@@ -68,6 +72,12 @@
 
 [urgency_critical]
     background = #1e1e2e
-    foreground = #f38ba8 # Flashes alert pink
-    frame_color = #f38ba8
-    timeout = 0 # Sticky: Must be dismissed manually
+    foreground = #f38ba8
+    frame_color = #fab387
+    timeout = 0
+
+[shortcuts]
+    close = Ctrl+Shift+d
+    close_all = Ctrl+Shift+x
+    history = Ctrl+Shift+h
+    context = Ctrl+Shift+period

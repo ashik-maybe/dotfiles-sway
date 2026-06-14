@@ -3,40 +3,70 @@
  * ============================================================================== */
 
 configuration {
-    modi:                       "drun,run";
+    modi:                       "drun,run,window";
     show-icons:                 true;
-    display-drun:               " ";
-    display-run:                " ";
+    display-drun:               " ";
+    display-run:                " ";
+    display-window:             " ";
     drun-format:                "{name}";
+    drun-match-fields:          "name,generic,exec,categories,keywords";
     font:                       "Arimo Nerd Font Bold 11";
+    sort:                       true;
+    case-sensitive:             false;
     /* icon-theme:                 "Papirus-Dark"; */
+
+    kb-mode-next:               "Shift+Right,Control+Tab";
+    kb-mode-previous:           "Shift+Left,Control+ISO_Left_Tab";
+    kb-accept-custom:           "Control+Return";
+    kb-remove-to-first:         "Control+BackSpace,Control+w";
+    kb-row-up:                  "Up,Control+p,Shift+Tab";
+    kb-row-down:                "Down,Control+n";
 }
 
-/* --- Color Variables Matrix --- */
+/* --- Catppuccin Mocha Color Variables --- */
 * {
-    bg-col:      #11111b; /* Base Pitch Black */
-    bg-alt:      #1e1e2e; /* Slate Capsule Base */
-    border-col:  #89b4fa; /* Electric Blue Accent Line */
-    text-col:    #cdd6f4; /* Crisp Soft White Text */
-    text-muted:  #6c7086; /* Gray Subtext Icons */
-    selected:    #313244; /* Highlight Hover Box Color */
-    urgent:      #f38ba8; /* Alert Pinkish Red */
+    rosewater: #f5e0dc;
+    flamingo:  #f2cdcd;
+    pink:      #f5c2e7;
+    mauve:     #cba6f7;
+    red:       #f38ba8;
+    maroon:    #eba0ac;
+    peach:     #fab387;
+    yellow:    #f9e2af;
+    green:     #a6e3a1;
+    teal:      #94e2d5;
+    sky:       #89dceb;
+    sapphire:  #74c7ec;
+    blue:      #89b4fa;
+    lavender:  #b4befe;
+    text:      #cdd6f4;
+    subtext1:  #bac2de;
+    subtext0:  #a6adc8;
+    overlay2:  #9399b2;
+    overlay1:  #7f849c;
+    overlay0:  #6c7086;
+    surface2:  #585b70;
+    surface1:  #45475a;
+    surface0:  #313244;
+    base:      #1e1e2e;
+    mantle:    #181825;
+    crust:     #11111b;
 
     width: 600;
     background-color: transparent;
 }
 
-/* Master Window Canvas Wrapper */
+/* Window */
 window {
     height:                      400px;
     border:                      2px;
-    border-color:                @border-col;
+    border-color:                @blue;
     border-radius:               12px;
-    background-color:            @bg-col;
-    text-color:                  @text-col;
+    background-color:            @crust;
+    text-color:                  @text;
 }
 
-/* Main Visual Layout Grid Configuration */
+/* Main box */
 mainbox {
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
@@ -46,8 +76,8 @@ mainbox {
 
 /* --- Top Row Search Bar Wrapper --- */
 inputbar {
-    background-color:            @bg-alt;
-    text-color:                  @text-col;
+    background-color:            @base;
+    text-color:                  @text;
     border-radius:               8px;
     padding:                     10px 14px;
     children:                    [ "prompt", "entry" ];
@@ -56,18 +86,18 @@ inputbar {
 
 prompt {
     background-color:            transparent;
-    text-color:                  @border-col; /* Blue Magnifying Glass Icon */
+    text-color:                  @blue;
     font:                        "Arimo Nerd Font Bold 13";
 }
 
 entry {
     background-color:            transparent;
-    text-color:                  @text-col;
+    text-color:                  @text;
     placeholder:                 "Search installed apps...";
-    placeholder-color:           @text-muted;
+    placeholder-color:           @overlay0;
 }
 
-/* --- Result Scroll Box Layout --- */
+/* List view */
 listview {
     background-color:            transparent;
     columns:                     1;
@@ -81,10 +111,10 @@ listview {
     spacing:                     4px;
 }
 
-/* --- Singular App Result Row Layout --- */
+/* Element */
 element {
     background-color:            transparent;
-    text-color:                  @text-col;
+    text-color:                  @text;
     border-radius:               6px;
     padding:                     8px 12px;
     spacing:                     12px;
@@ -94,24 +124,31 @@ element {
 
 element normal.normal {
     background-color:            transparent;
-    text-color:                  @text-col;
+    text-color:                  @text;
 }
 
 element selected.normal {
-    background-color:            @selected; /* Elegant highlight background highlight */
-    text-color:                  @text-col;
+    background-color:            @surface0;
+    text-color:                  @text;
     border:                      0px 0px 0px 4px;
-    border-color:                @border-col; /* Highlights left strip with an accent bar */
+    border-color:                @blue;
 }
 
-/* Application Graphic Icon Layout Dimensions */
+element urgent.normal {
+    background-color:            @crust;
+    text-color:                  @red;
+    border:                      0px 0px 0px 4px;
+    border-color:                @red;
+}
+
+/* Icon */
 element-icon {
     background-color:            transparent;
     size:                        24px;
     cursor:                      inherit;
 }
 
-/* Application Output Text Rendering Label */
+/* Text */
 element-text {
     background-color:            transparent;
     text-color:                  inherit;

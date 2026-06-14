@@ -4,10 +4,11 @@
   "height": 32,
   "spacing": 5,
 
-  // Modern Minimalist Laptop Layout
   "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "sway/window"],
-  "modules-center": ["clock"],
+  "modules-center": ["mpris", "clock"],
   "modules-right": [
+    "privacy",
+    "bluetooth",
     "idle_inhibitor",
     "pulseaudio",
     "backlight",
@@ -20,47 +21,60 @@
     "tray"
   ],
 
-  // --- Left Section Modules ---
   "sway/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,
     "format": "{icon}",
     "format-icons": {
-      "1": "",      // Terminal
-      "2": "󰨞",      // Code / IDE
-      "3": "󰈹",      // Web Browser / Docs
-      "4": "󰙯",      // Communication / Chat
-      "5": "󰓓",      // Entertainment / Music
-      "urgent": "󱈸",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
       "focused": "",
       "default": ""
     }
   },
 
   "sway/window": {
-    "format": "󰣆  {title}",
+    "format": "  {title}",
     "max-length": 40,
     "rewrite": {
-      "(.*) — Mozilla Firefox": "󰈹  $1",
-      "(.*) - Visual Studio Code": "󰨞  $1",
-      "nsublime(.*)": "  Neovim",
-      "~(.*)": "  Terminal"
+      "(.*) — Mozilla Firefox": "  $1",
+      "(.*) [—-] (Chromium|Google Chrome|Brave( Browser)?|Edge|Vivaldi|Opera)$": "  $1",
+      "(.*) - Visual Studio Code": "  $1",
+      "(.*) - (Zed|Zed Preview)$": "  $1",
+      "~(.*)": "  Terminal"
     }
   },
 
   "sway/mode": {
-    "format": "󰘳 <span style=\"italic\">{}</span>"
+    "format": " <span style=\"italic\">{}</span>"
   },
 
   "sway/scratchpad": {
-    "format": "󰖯 {count}",
+    "format": " {count}",
     "show-empty": false
   },
 
-  // --- Center Section Module (The Visual Anchor) ---
+  "mpris": {
+    "format": "{player_icon} {title}   {artist}",
+    "format-paused": "{player_icon} {title}",
+    "status-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "player-icons": {
+      "default": ""
+    },
+    "ignored-players": ["firefox"],
+    "interval": 2
+  },
+
   "clock": {
     "interval": 60,
-    "format": "󰃭 {:%a %b %d}  󰥔 {:%H:%M}",
+    "format": " {:%a %b %d}   {:%H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -68,35 +82,54 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months":    "<span color='#ffead3'><b>{}</b></span>",
-        "days":      "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks":     "<span color='#99ff99'><b>W{}</b></span>",
-        "weekdays":  "<span color='#ffcc66'><b>{}</b></span>",
-        "today":     "<span color='#ff6666'><b><u>{}</u></b></span>"
+        "months":    "<span color='#89dceb'><b>{}</b></span>",
+        "days":      "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks":     "<span color='#a6e3a1'><b>W{}</b></span>",
+        "weekdays":  "<span color='#f9e2af'><b>{}</b></span>",
+        "today":     "<span color='#f38ba8'><b><u>{}</u></b></span>"
       }
     }
   },
 
-  // --- Right Section Modules (Laptop & Developer Utilities) ---
+  "privacy": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-spacing": 6,
+    "privacy-items": ["camera", "microphone", "screencast"],
+    "format-icons": {
+      "camera": "",
+      "microphone": "",
+      "screencast": ""
+    }
+  },
+
+  "bluetooth": {
+    "format": " {num_connections}",
+    "format-disabled": "",
+    "format-connected": " {device_alias}",
+    "on-click": "blueman-manager",
+    "tooltip-format": "{device_enumerate}"
+  },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "󰛟",   // Steaming Coffee Cup (Caffeine On)
-      "deactivated": "󾠗" // Outlined/Empty Coffee Cup (Caffeine Off)
+      "activated": "",
+      "deactivated": ""
     }
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%  {format_source}",
-    "format-bluetooth": "󰂯 {icon} {volume}%  {format_source}",
-    "format-muted": "󰝟 Muted  {format_source}",
-    "format-source": "󰍬 {volume}%",
-    "format-source-muted": "󰍭 Muted",
+    "format-bluetooth": " {icon} {volume}%  {format_source}",
+    "format-muted": " Muted  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
     "format-icons": {
-      "headphone": "󰋋",
-      "hands-free": "󰋎",
-      "headset": "󰋎",
-      "default": ["󰕿", "󰖀", "󰕾"]
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -105,48 +138,51 @@
 
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "format-icons": ["", "", ""],
     "scroll-step": 5
   },
 
   "network": {
-    "format-wifi": "󰤨  {essid} 󰛴 {bandwidthDownBytes}",
-    "format-ethernet": "󰈀  Wire 󰛴 {bandwidthDownBytes}",
-    "format-disconnected": "󰤭  Offline",
+    "format-wifi": "  {essid}   {bandwidthDownBytes}",
+    "format-ethernet": "  Wire   {bandwidthDownBytes}",
+    "format-disconnected": "Offline",
     "interval": 2,
     "tooltip-format": "IP: {ipaddr}\nSignal: {signalStrength}%"
   },
 
   "cpu": {
-    "format": "󰻠 {usage}%",
+    "format": " {usage}%",
     "interval": 2
   },
 
   "memory": {
-    "format": "󰍛 {used:0.1f}G/{total:0.0f}G",
+    "format": " {used:0.1f}G/{total:0.0f}G",
     "interval": 2,
     "tooltip-format": "Swap: {swapUsed:0.1f}G / {swapTotal:0.0f}G"
   },
 
   "temperature": {
-    "critical-threshold": 80,
+    "critical-threshold": 85,
+    "states": {
+      "warning": 70
+    },
     "format": " {temperatureC}°C"
   },
 
   "battery": {
     "states": { "warning": 30, "critical": 15 },
     "format": "{icon} {capacity}%",
-    "format-charging": "󱐋 {icon} {capacity}%",
+    "format-charging": " {icon} {capacity}%",
     "format-plugged": " {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+    "format-icons": ["", "", "", "", ""],
     "interval": 5
   },
 
   "battery#bat2": {
     "bat": "BAT2",
     "states": { "warning": 30, "critical": 15 },
-    "format": "󰂄2 {capacity}%",
-    "format-charging": "󱐋 󰂄2 {capacity}%"
+    "format": "2 {capacity}%",
+    "format-charging": " 2 {capacity}%"
   },
 
   "tray": {
