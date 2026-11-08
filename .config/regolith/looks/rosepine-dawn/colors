@@ -1,0 +1,20 @@
+# Rose Pine Dawn (light) — not Moon, not base
+# https://rosepinetheme.com/en/palette/
+base: #FAF4ED
+surface: #FFFFFA
+overlay: #F2E9E1
+muted: #9893A5
+subtle: #797593
+text: #575279
+love: #D7827E
+gold: #EA9D34
+rosewater: #B4637A
+pine: #286983
+foam: #56949F
+iris: #907AA9
+highlight_low: #F4EDE8
+highlight_med: #DFDAD9
+highlight_high: #CECACD
+gtk_theme: Nordic
+icon_theme: Arc
+wallpaper: regolith.png
