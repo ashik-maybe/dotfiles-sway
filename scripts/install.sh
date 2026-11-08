@@ -25,3 +25,11 @@ command -v stow >/dev/null && stow -t "$HOME" . || echo "stow not found, manual 
 echo "TLP skipped (optional). Fedora default battery is excellent."
 
 echo "Done. Start Sway: sway"
+
+# --- Regolith daemons / tools (Fedora Sway Spin native) ---
+# No TLP needed; Fedora power-profiles handles it. Install daemons if available:
+#  sudo dnf install -y wlr-randr power-profiles-daemon
+# ilia / remontoire upstream are COPR-only (regolith-linux-fedora); fallback scripts
+# in .local/bin/ilia and .local/bin/remontoire provide Sway-native equivalents.
+# Official Sway-native wrappers provided:
+#  regolith-displayd, regolith-powerd, i3-snapshot, regolith-look

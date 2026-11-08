@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# regolith-look — Look switcher (Sway-native port of regolith-linux/regolith-styles)
+# Usage: regolith-look refresh | regolith-look list | regolith-look set <look>
+set -euo pipefail
+LOOKS_DIR="$HOME/.config/regolith/looks"
+CURRENT="$HOME/.config/regolith/current"
+XRES="$HOME/.Xresources-regolith"
+OVERRIDE="$HOME/.config/regolith/Xresources"
+
+refresh() {
+  local look="${1:-nord}"
+  [ -f "$LOOKS_DIR/$look/colors" ] || { echo "Look '$look' not found"; exit 1; }
+  mkdir -p "$HOME/.config/regolith"
+  cp "$LOOKS_DIR/$look/colors" "$CURRENT"
+  {
+    echo "regolith.look: $look"
+    grep -E '^[a-z0-9_]+:' "$CURRENT" | sed 's/^/regolith.style./' || true
+  } > "$XRES" 2>/dev/null || true
+  # Apply GTK theme from look file if present
+  local gtk_theme icon_theme
+  gtk_theme=$(grep '^gtk_theme:' "$CURRENT" | cut -d: -f2 | xargs || echo "Nordic")
+  icon_theme=$(grep '^icon_theme:' "$CURRENT" | cut -d: -f2 | xargs || echo "Arc")
+  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme" 2>/dev/null || true
+  gsettings set org.gnome.desktop.interface icon-theme "$icon_theme" 2>/dev/null || true
+  mkdir -p "$HOME/.config/gtk-3.0" "$HOME/.config/gtk-4.0"
+  printf "[Settings]\ngtk-theme-name=%s\nicon-theme-name=%s\n" "$gtk_theme" "$icon_theme" > "$HOME/.config/gtk-3.0/settings.ini"
+  printf "[Settings]\ngtk-theme-name=%s\nicon-theme-name=%s\n" "$gtk_theme" "$icon_theme" > "$HOME/.config/gtk-4.0/settings.ini"
+  # Reload bars/compositor if running
+  swaymsg reload 2>/dev/null || true
+  pkill waybar 2>/dev/null || true
+  waybar &>/dev/null &
+  echo "Applied look: $look (gtk=$gtk_theme icon=$icon_theme)"
+}
+
+case "${1:-}" in
+  refresh) refresh "${2:-nord}" ;;
+  set) refresh "${2:-nord}" ;;
+  list) find "$LOOKS_DIR" -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | sort ;;
+  *) echo "Usage: regolith-look refresh|list|set <look>"; echo "Looks:"; find "$LOOKS_DIR" -maxdepth 1 -mindepth 1 -type d -printf '  %f\n' | sort ;;
+esac

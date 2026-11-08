@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# regolith-displayd — Display config daemon (Sway-native port)
+# Uses wlr-randr (Wayland) with swaymsg for output control.
+# Upstream: regolith-linux-fedora/regolith-displayd (gnome-control-center DisplayConfig D-Bus for sway)
+set -euo pipefail
+case "${1:-list}" in
+  list) wlr-randr 2>/dev/null || swaymsg -t get_outputs ;;
+  enable) swaymsg "output $2 enable" ;;
+  disable) swaymsg "output $2 disable" ;;
+  set) swaymsg "output $2 mode $3 pos $4 scale $5" ;;
+  *) echo "Usage: regolith-displayd list|enable <out>|disable <out>|set <out> <mode> <pos> <scale>" ;;
+esac

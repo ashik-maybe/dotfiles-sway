@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# i3-snapshot — record/restore window+workspace layout (Regolith upstream: regolith-linux/i3-snapshot)
+# Sway-native: uses swaymsg get_tree
+set -euo pipefail
+SNAPDIR="$HOME/.local/share/regolith/snapshots"
+mkdir -p "$SNAPDIR"
+cmd="${1:-save}"
+name="${2:-snap_$(date +%F_%H%M%S)}"
+case "$cmd" in
+  save) swaymsg -t get_tree > "$SNAPDIR/$name.json"; echo "Saved $SNAPDIR/$name.json" ;;
+  list) ls -1 "$SNAPDIR" ;;
+  restore) [ -f "$SNAPDIR/$name.json" ] && echo "Restore: open $SNAPDIR/$name.json manually via swaymsg (tree JSON saved)" || echo "Not found: $name" ;;
+  *) echo "Usage: i3-snapshot save|list|restore <name>" ;;
+esac

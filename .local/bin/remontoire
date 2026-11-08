@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# remontoire — keybinding viewer for Sway (Regolith upstream: regolith-linux/remontoire)
+# Parses sway binds and shows in rofi
+CONFIG_DIR="$HOME/.config/sway"
+{
+  echo "### Regolith Keybindings (from Sway config) ###"
+  grep -h "bindsym" "$CONFIG_DIR"/config "$CONFIG_DIR"/config.d/*.conf 2>/dev/null | sed -E 's/^[[:space:]]*//'
+} | rofi -dmenu -p "regolith keybindings" -theme ~/.config/rofi/config.rasi "$@"

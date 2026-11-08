@@ -1,0 +1,18 @@
+# Dracula — Regolith look candidate
+base0: #282A36
+base1: #343746
+base2: #44475A
+base3: #6272A4
+base4: #F8F8F2
+base5: #F8F8F2
+red: #FF5555
+green: #50FA7B
+yellow: #F1FA8C
+blue: #8BE9FD
+magenta: #FF79C6
+cyan: #8BE9FD
+orange: #FFB86C
+purple: #BD93F9
+gtk_theme: Nordic
+icon_theme: Arc
+wallpaper: regolith.png

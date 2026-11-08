@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# regolith-powerd — Power sync daemon (Sway-native port)
+# Syncs GNOME power settings with swayidle / power-profiles-daemon
+set -euo pipefail
+# Idle dim + lock handled by swayidle in sway config; this exposes CLI:
+case "${1:-status}" in
+  status)
+    echo "Profile: $(powerprofilesctl get 2>/dev/null || echo balanced)"
+    echo "Sleep-on-battery: $(gsettings get org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 2>/dev/null || echo unspecified)"
+    echo "Idle: swayidle 300s lock / 600s dpms off"
+    ;;
+  set-profile) powerprofilesctl set "$2" ;;
+  suspend) systemctl suspend ;;
+  hibernate) systemctl hibernate ;;
+  *) echo "Usage: regolith-powerd status|set-profile <performance|balanced|power-saver>|suspend|hibernate" ;;
+esac

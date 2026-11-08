@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# ilia — GTK app executor fallback (Regolith upstream uses ilia binary from COPR)
+# Fedora Sway Spin: use rofi drun as ilia when upstream ilia not installed
+if command -v ilia-bin >/dev/null 2>&1; then
+  exec ilia-bin "$@"
+elif command -v ilia >/dev/null 2>&1 && [ "$(realpath "$(command -v ilia)")" != "$(realpath "$0")" ]; then
+  exec ilia "$@"
+else
+  exec rofi -show drun -terminal foot -display-drun " " -theme ~/.config/rofi/config.rasi "$@"
+fi

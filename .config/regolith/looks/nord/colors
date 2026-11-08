@@ -1,0 +1,20 @@
+# Nord — Regolith default look (regolith-styles/nord/color)
+nord0: #2E3440
+nord1: #3B4252
+nord2: #434C5E
+nord3: #4C566A
+nord4: #D8DEE9
+nord5: #E5E9F0
+nord6: #ECEFF4
+nord8: #8FBCBB
+nord9: #88C0D0
+nord10: #81A1C1
+nord11: #5E81AC
+nord12: #B48EAD
+nord13: #A3BE8C
+nord14: #EBCB8B
+nord15: #D08770
+nord16: #BF616A
+gtk_theme: Nordic
+icon_theme: Arc
+wallpaper: regolith.png
