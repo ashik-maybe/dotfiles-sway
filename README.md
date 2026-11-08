@@ -56,7 +56,7 @@ Volume/brightness/mic/play keys work. Scratchpad holds logs, tests.
 
 ## Looks
 
-Default: Rosé Pine (base, not Moon). Change: `regolith-look list`, `regolith-look set <look>`. No Catppuccin.
+Default: Rosé Pine. Change: `regolith-look list`, `regolith-look set <look>`.
 
 ## Helpers
 
