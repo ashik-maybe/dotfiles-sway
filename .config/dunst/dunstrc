@@ -4,24 +4,24 @@ width = 600
 height = 400
 offset = 0% 580p
 timeout = 5
-foreground = "#D8DEE9"
-background = "#2E3440"
-frame_color = "#81A1C1"
+foreground = "#E0DEF4"
+background = "#191724"
+frame_color = "#EB6F92"
 frame_width = 2
 frame_radius = 8
 idle_threshold = 0
 history_size = 50
 
 [urgency]
-low = "#3B4252"
-normal = "#2E3440"
-critical = "#BF616A"
+low = "#1F1D2E"
+normal = "#191724"
+critical = "#EB6F92"
 
 [severity]
-off = "#4C566A"
-low = "#81A1C1"
-normal = "#D8DEE9"
-critical = "#BF616A"
+off = "#6E6A86"
+low = "#EB6F92"
+normal = "#E0DEF4"
+critical = "#EB6F92"
 
 [experimental]
 format_error = true

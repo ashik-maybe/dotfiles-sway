@@ -15,19 +15,19 @@ configuration {
     kb-row-down: "Down,Control+n";
 }
 * {
-    nord0: #2E3440; nord1: #3B4252; nord2: #434C5E; nord3: #4C566A;
-    nord4: #D8DEE9; nord5: #E5E9F0; nord6: #ECEFF4;
-    nord8: #8FBCBB; nord9: #88C0D0; nord10: #81A1C1; nord11: #5E81AC;
-    nord12: #B48EAD; nord13: #A3BE8C; nord14: #EBCB8B; nord15: #D08770; nord16: #BF616A;
+    191724: #191724; 1F1D2E: #1F1D2E; 26233A: #26233A; 6E6A86: #6E6A86;
+    E0DEF4: #E0DEF4; E0DEF4: #E0DEF4; E0DEF4: #E0DEF4;
+    9CCFD8: #9CCFD8; 9CCFD8: #9CCFD8; EB6F92: #EB6F92; C4A7E7: #C4A7E7;
+    C4A7E7: #C4A7E7; 9CCFD8: #9CCFD8; F6C177: #F6C177; EBBCBA: #EBBCBA; EB6F92: #EB6F92;
     width: 600; background-color: transparent;
 }
-window { height: 400px; border: 2px; border-color: @nord10; border-radius: 12px; background-color: @nord0; text-color: @nord4; }
+window { height: 400px; border: 2px; border-color: @EB6F92; border-radius: 12px; background-color: @191724; text-color: @E0DEF4; }
 mainbox { background-color: transparent; children: [ "inputbar", "listview" ]; padding: 16px; spacing: 12px; }
-inputbar { background-color: @nord1; text-color: @nord4; border-radius: 8px; padding: 10px 14px; children: [ "prompt", "entry" ]; spacing: 8px; }
-prompt { background-color: transparent; text-color: @nord10; font: "JetBrainsMono Nerd Font Bold 13"; }
-entry { background-color: transparent; text-color: @nord4; placeholder: "Regolith Launcher..."; placeholder-color: @nord3; }
+inputbar { background-color: @1F1D2E; text-color: @E0DEF4; border-radius: 8px; padding: 10px 14px; children: [ "prompt", "entry" ]; spacing: 8px; }
+prompt { background-color: transparent; text-color: @EB6F92; font: "JetBrainsMono Nerd Font Bold 13"; }
+entry { background-color: transparent; text-color: @E0DEF4; placeholder: "Regolith Launcher..."; placeholder-color: @6E6A86; }
 listview { background-color: transparent; columns: 1; lines: 7; cycle: true; dynamic: true; scrollbar: false; layout: vertical; fixed-height: true; spacing: 4px; }
-element { background-color: transparent; text-color: @nord4; border-radius: 6px; padding: 8px 12px; spacing: 12px; cursor: pointer; orientation: horizontal; }
-element selected.normal { background-color: @nord2; border: 0px 0px 0px 4px; border-color: @nord10; }
+element { background-color: transparent; text-color: @E0DEF4; border-radius: 6px; padding: 8px 12px; spacing: 12px; cursor: pointer; orientation: horizontal; }
+element selected.normal { background-color: @26233A; border: 0px 0px 0px 4px; border-color: @EB6F92; }
 element-icon { background-color: transparent; size: 24px; }
 element-text { background-color: transparent; text-color: inherit; vertical-align: 0.5; }

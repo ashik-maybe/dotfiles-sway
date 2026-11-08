@@ -1,4 +1,4 @@
-# Fedora Regolith — Proper port base (Regolith Nord look, Fedora Sway Spin)
+# Fedora Regolith — Proper port base (Regolith Rose Pine look, Fedora Sway Spin)
 # Upstream Regolith default look = nord (NOT Catppuccin / not Nord Gruvbox)
 # Sources: regolith-linux/regolith-styles/nord/{color,theme,rofi.rasi}
 # Palette: https://www.nordtheme.com
@@ -20,33 +20,33 @@ set $clip ~/.local/bin/regolith-clipboard
 set $shot ~/.local/bin/regolith-screenshot
 set $power ~/.local/bin/regolith-power
 
-# --- Regolith Nord (regolith-styles/nord/color) ---
-set $nord0  #2E3440
-set $nord1  #3B4252
-set $nord2  #434C5E
-set $nord3  #4C566A
-set $nord4  #D8DEE9
-set $nord5  #E5E9F0
-set $nord6  #ECEFF4
+# --- Regolith Rose Pine (regolith-styles/nord/color) ---
+set $191724  #191724
+set $1F1D2E  #1F1D2E
+set $26233A  #26233A
+set $6E6A86  #6E6A86
+set $E0DEF4  #E0DEF4
+set $E0DEF4  #E0DEF4
+set $E0DEF4  #E0DEF4
 set $nord7  #8BC34A00
-set $nord8  #8FBCBB
-set $nord9  #88C0D0
-set $nord10 #81A1C1
-set $nord11 #5E81AC
-set $nord12 #B48EAD
-set $nord13 #A3BE8C
-set $nord14 #EBCB8B
-set $nord15 #D08770
-set $nord16 #BF616A
+set $9CCFD8  #9CCFD8
+set $9CCFD8  #9CCFD8
+set $EB6F92 #EB6F92
+set $C4A7E7 #C4A7E7
+set $C4A7E7 #C4A7E7
+set $9CCFD8 #9CCFD8
+set $F6C177 #F6C177
+set $EBBCBA #EBBCBA
+set $EB6F92 #EB6F92
 
 # Back-compat aliases for waybar/rofi consumers
-set $red $nord16
-set $green $nord13
-set $yellow $nord14
-set $blue $nord10
-set $cyan $nord9
-set $magenta $nord12
-set $orange $nord15
+set $red $EB6F92
+set $green $9CCFD8
+set $yellow $F6C177
+set $blue $EB6F92
+set $cyan $9CCFD8
+set $magenta $C4A7E7
+set $orange $EBBCBA
 
 # --- Outputs / Wallpaper (swaybg = Fedora Sway Spin native) ---
 output * bg ~/Pictures/wallpapers/regolith.png fill
@@ -65,10 +65,10 @@ gaps outer 0
 smart_gaps on
 default_border pixel 1
 default_floating_border normal 1
-client.focused          $nord10 $nord10 $nord0 $nord9 $nord10
-client.focused_inactive $nord1 $nord1 $nord4 $nord1 $nord1
-client.unfocused        $nord0 $nord0 $nord3 $nord0 $nord0
-client.urgent           $nord16 $nord16 $nord0 $nord16 $nord16
+client.focused          $EB6F92 $EB6F92 $191724 $9CCFD8 $EB6F92
+client.focused_inactive $1F1D2E $1F1D2E $E0DEF4 $1F1D2E $1F1D2E
+client.unfocused        $191724 $191724 $6E6A86 $191724 $191724
+client.urgent           $EB6F92 $EB6F92 $191724 $EB6F92 $EB6F92
 
 workspace_auto_back_and_forth yes
 focus_on_window_activation smart
