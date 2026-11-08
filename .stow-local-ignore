@@ -1,0 +1,6 @@
+# stow never stows these
+.git
+.gitignore
+.gitattributes
+.stow-local-ignore
+README.md

@@ -1,18 +1,8 @@
 # Fedora Regolith
 
-Regolith is a productivity desktop environment.
-Fedora Regolith ports Regolith to Fedora Sway Spin.
-Sway is a Wayland compositor.
-A Wayland compositor manages windows.
-Stow is a symlink manager.
-A symlink is a link to a file.
+Guide. Not manual. Start here.
 
 ## Install
-
-You clone the repository to the home directory.
-You change to the repository directory.
-You run `stow .` in the repository directory.
-Stow creates symlinks to the home directory.
 
 ```bash
 git clone https://github.com/ashik-maybe/dotfiles-sway.git ~/dotfiles-sway
@@ -20,41 +10,100 @@ cd ~/dotfiles-sway
 stow .
 ```
 
-## Verify
-
-You run `sway -C -` in the repository directory.
-The system reports no configuration errors.
-You run `fc-list | grep JetBrainsMono`.
-The system lists JetBrainsMono Nerd Font.
+`stow .` puts configs in place. Check `sway -C`, `fc-list | grep JetBrainsMono`.
 
 ## Looks
 
-A Look is a complete color theme set.
-The system uses Nord by default.
-The system does not use Catppuccin.
-You list Looks with `regolith-look list`.
-You apply a Look with `regolith-look set <look>`.
+Active Look = Nord. Default. User picks. Change: `regolith-look list`, `regolith-look set <look>`.
+GTK = Nordic. Icons = Arc. No Catppuccin talk.
 
-## Keys
+## Workspaces
 
-Super is the Mod key (Mod4).
+| Key | Action |
+|---|---|
+| `Super+1..0` | Go workspace |
+| `Super+Shift+1..0` | Move window to workspace |
+| `Super+Ctrl+1..5` | Move window + follow |
+| `Super+Ctrl+Left/Right` | Prev/next workspace |
+| `Super+Shift+Ctrl+Left/Right` | Move workspace to output |
 
-- `Super+Space` opens the launcher.
-- `Super+Return` opens the terminal.
-- `Super+1` through `Super+0` change workspaces.
-- `Super+Shift+1` through `Super+Shift+0` move windows.
-- `Super+HJKL` moves focus.
-- `Super+Shift+HJKL` moves windows.
-- `Super+f` toggles fullscreen.
-- `Super+l` locks the screen.
-- `Print` captures the screen.
+Staged: 1 Code, 2 Web, 3 Term, 4 Files, 5 Comms.
+
+## Launch
+
+| Key | Action |
+|---|---|
+| `Super+Space` / `Super+d` | Regolith Launcher |
+| `Super+Tab` | Window switcher |
+| `Super+Ctrl+Space` | Clipboard |
+| `Super+slash` | Regolith help |
+| `Super+Return` | Foot terminal |
+| `Super+Ctrl+Return` | Foot terminal |
+| `Super+e` | Editor (`nvim`) |
+| `Super+b` | Browser |
+| `Super+Shift+t` | Terminal home |
+| `Super+Shift+f` | File manager |
+| `Super+grave` | Drop terminal |
+
+## Move / Resize
+
+| Key | Action |
+|---|---|
+| `Super+HJKL` / arrows | Focus |
+| `Super+Shift+HJKL` | Move window |
+| `Super+Ctrl+HJKL` | Resize window |
+| `Super+r` | Resize mode (HJKL, `Return` exit) |
+| `Super+f` | Fullscreen |
+| `Super+Shift+Space` | Floating toggle |
+| `Super+Space` (in focus mode) | Mode toggle |
+| `Super+a` | Focus parent |
+| `Super+q` / `Super+Shift+q` | Kill window |
+| `Super+s` | Stacking |
+| `Super+w` | Tabbed |
+| `Super+h` / `Super+v` | Split vertical / split horizontal |
+| `Super+Ctrl+t` | Layout toggle split |
+| `Super+Shift+l` | Layout toggle split |
+
+## Scratchpad
+
+| Key | Action |
+|---|---|
+| `Super+i` / `Super+p` | Move to scratchpad |
+| `Super+u` / `Super+o` | Show scratchpad |
+| `Super+minus` | Move to scratchpad |
+| `Super+Shift+minus` | Scratchpad show |
+
+Use for: logs, test runners, scratch terminal.
+
+## System
+
+| Key | Action |
+|---|---|
+| `Super+l` | Lock (`swaylock`) |
+| `Super+Shift+x` | System mode: `l` lock, `s` sleep, `h` hibernate, `p` poweroff |
+| `Super+Shift+c` | Reload Sway config |
+| `Super+Shift+e` | Exit Sway |
+
+## Media
+
+| Key | Action |
+|---|---|
+| `XF86AudioRaise/Lower/Mute` | Volume |
+| `XF86AudioPlay/Next/Prev/Stop` | Media (`playerctl`) |
+| `XF86AudioMicMute` | Mic mute |
+| `XF86MonBrightnessUp/Down` | Brightness |
+| `Print` | Full screenshot |
+| `Shift+Print` | Area screenshot |
+| `Ctrl+Print` | Window screenshot |
 
 ## Stack
 
-- Sway manages windows.
-- Waybar shows status.
-- Rofi provides the launcher.
-- Foot provides the terminal.
-- Dunst shows notifications.
-- Swaylock locks the screen.
-- JetBrainsMono Nerd Font provides glyphs.
+Sway. Waybar. Rofi. Foot (`foot -s`). Dunst. Swaylock/Swayidle. Swaybg. Grim/Slurp/Satty. wl-clipboard/cliphist.
+
+## Scripts (`.local/bin/`)
+
+`regolith-launcher`, `regolith-window`, `regolith-clipboard`, `regolith-screenshot`, `regolith-power`, `regolith-help`, `regolith-look`, `remontoire`, `ilia`, `regolith-displayd`, `regolith-powerd`, `i3-snapshot`.
+
+## Stow rules
+
+Tracked = configs, fonts, scripts. Runtime = cache, logs, secrets, screenshots. Never stow runtime. `.stow-local-ignore` excludes meta files.
