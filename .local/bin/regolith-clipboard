@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Clipboard via cliphist + rofi
+[ -n "$*" ] && exec cliphist list | rofi -dmenu -p "Clipboard" -theme ~/.config/rofi/config.rasi | cliphist decode | wl-copy && exit 0
+cliphist list | rofi -dmenu -p "Clipboard" -theme ~/.config/rofi/config.rasi | cliphist decode | wl-copy

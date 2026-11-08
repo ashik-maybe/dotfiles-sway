@@ -1,0 +1,27 @@
+[global]
+monitor = ""
+width = 600
+height = 400
+offset = 0% 580p
+timeout = 5
+foreground = "#D8DEE9"
+background = "#2E3440"
+frame_color = "#81A1C1"
+frame_width = 2
+frame_radius = 8
+idle_threshold = 0
+history_size = 50
+
+[urgency]
+low = "#3B4252"
+normal = "#2E3440"
+critical = "#BF616A"
+
+[severity]
+off = "#4C566A"
+low = "#81A1C1"
+normal = "#D8DEE9"
+critical = "#BF616A"
+
+[experimental]
+format_error = true

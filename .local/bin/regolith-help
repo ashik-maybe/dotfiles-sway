@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Keybinding help (remontoire-style)
+exec rofi -dmenu -p "Regolith — Keybindings" -theme ~/.config/rofi/config.rasi <<'EOF'
+Super+Space — Launcher
+Super+Return — Terminal (foot)
+Super+1..0 — Workspaces (1 Code, 2 Web, 3 Term)
+Super+Shift+1..0 — Move to workspace
+Super+HJKL / Arrows — Focus
+Super+Shift+HJKL — Move window
+Super+Ctrl+HJKL — Resize
+Super+f — Fullscreen
+Super+grave — Drop terminal
+Super+u/i — Scratchpad
+Super+r — Resize mode (HJKL)
+Super+l — Lock
+Super+Shift+x — System mode
+Super+` — Scratchpad terminal
+Print — Screenshot fullscreen
+Shift+Print — Screenshot region
+Super+Ctrl+Space — Clipboard
+EOF

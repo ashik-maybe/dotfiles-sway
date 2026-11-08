@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Power menu — Regolith-style
+case "${1:-menu}" in
+  lock) swaylock -f ;;
+  sleep) swaylock -f; systemctl suspend ;;
+  hibernate) swaylock -f; systemctl hibernate ;;
+  poweroff) exec swaynag -t warning -m 'Power off?' -B 'Yes' 'systemctl poweroff' ;;
+  reboot) exec swaynag -t warning -m 'Reboot?' -B 'Yes' 'systemctl reboot' ;;
+  menu)
+    sel=$(printf "Lock\nSuspend\nHibernate\nReboot\nPower Off\n" | rofi -dmenu -p "Power" -theme ~/.config/rofi/config.rasi)
+    case "$sel" in
+      Lock) swaylock -f ;;
+      Suspend) swaylock -f; systemctl suspend ;;
+      Hibernate) swaylock -f; systemctl hibernate ;;
+      Reboot) systemctl reboot ;;
+      "Power Off") systemctl poweroff ;;
+    esac
+    ;;
+esac

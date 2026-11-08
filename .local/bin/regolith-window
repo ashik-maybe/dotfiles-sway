@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Window switcher
+exec rofi -show window -display-window " " -theme ~/.config/rofi/config.rasi "$@"

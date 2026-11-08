@@ -1,0 +1,42 @@
+/* Fedora Regolith — Waybar (Nord, regolith-styles/nord) */
+@define-color nord0 #2E3440;
+@define-color nord1 #3B4252;
+@define-color nord2 #434C5E;
+@define-color nord3 #4C566A;
+@define-color nord4 #D8DEE9;
+@define-color nord5 #E5E9F0;
+@define-color nord6 #ECEFF4;
+@define-color nord8 #8FBCBB;
+@define-color nord9 #88C0D0;
+@define-color nord10 #81A1C1;
+@define-color nord11 #5E81AC;
+@define-color nord12 #B48EAD;
+@define-color nord13 #A3BE8C;
+@define-color nord14 #EBCB8B;
+@define-color nord15 #D08770;
+@define-color nord16 #BF616A;
+
+* { font-family: "JetBrainsMono Nerd Font", sans-serif; font-size: 12px; font-weight: 600; border: none; border-radius: 0; min-height: 0; }
+window#waybar { background: @nord0; color: @nord4; }
+tooltip { background: @nord1; border: 2px solid @nord10; border-radius: 8px; color: @nord4; }
+#workspaces { background: @nord1; margin: 4px; border-radius: 8px; }
+#workspaces button { padding: 0 10px; color: @nord3; border-radius: 6px; }
+#workspaces button.focused { color: @nord10; background: @nord2; }
+#workspaces button.urgent { color: @nord16; }
+#window { color: @nord9; padding: 0 12px; }
+#mpris, #clock, #custom-launcher, #custom-power, #privacy, #bluetooth, #pulseaudio, #backlight, #network, #cpu, #memory, #temperature, #battery, #tray, #mode, #scratchpad, #idle_inhibitor {
+    background: @nord1; padding: 0 12px; margin: 4px 2px; border-radius: 8px;
+}
+#pulseaudio { color: @nord14; }
+#pulseaudio.muted { color: @nord16; }
+#network { color: @nord13; }
+#network.disconnected { color: @nord16; }
+#bluetooth { color: @nord10; }
+#cpu { color: @nord9; }
+#memory { color: @nord8; }
+#battery { color: @nord12; }
+#battery.warning { color: @nord16; }
+#battery.charging { color: @nord13; }
+#idle_inhibitor.activated { background: @nord14; color: @nord0; }
+#privacy { color: @nord13; }
+#privacy:not(.screencast):not(.microphone):not(.camera) { color: @nord3; }

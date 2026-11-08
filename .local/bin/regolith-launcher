@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Regolith Launcher — rofi drun (Fedora Sway native, ilia-style)
+exec rofi -show drun -terminal foot -display-drun " " -theme ~/.config/rofi/config.rasi "$@"

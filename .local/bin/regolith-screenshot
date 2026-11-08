@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# grim + slurp + satty (Wayland standard)
+# Usage: regolith-screenshot [full|region|window]
+set -euo pipefail
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+TS=$(date +%F_%H%M%S)
+OUT="$DIR/screenshot_$TS.png"
+case "${1:-region}" in
+  full) grim "$OUT" ;;
+  window) grim -g "$(slurp)" "$OUT" ;;
+  region|*) grim -g "$(slurp)" "$OUT" ;;
+esac
+# Copy to clipboard + notify
+wl-copy < "$OUT" || true
+notify-send "Screenshot saved" "$OUT" -i camera
+echo "$OUT"
