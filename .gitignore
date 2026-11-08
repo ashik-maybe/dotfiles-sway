@@ -1,9 +1,8 @@
-# Fonts: track only JetBrainsMono core, ignore full downloads
 .fonts/**/*
-!.fonts/JetBrainsMono/
-!.fonts/JetBrainsMono/*.ttf
-!.fonts/JetBrainsMono/README.md
-!.fonts/JetBrainsMono/LICENSE.txt
+!.fonts/IntoneMono/
+!.fonts/IntoneMono/*.ttf
+!.fonts/IntoneMono/README.md
+!.fonts/IntoneMono/LICENSE.txt
 .local/share/fonts/*/*
-!.local/share/fonts/JetBrainsMono/
-!.local/share/fonts/JetBrainsMono/*.ttf
+!.local/share/fonts/IntoneMono/
+!.local/share/fonts/IntoneMono/*.ttf

@@ -10,7 +10,7 @@ cd ~/dotfiles-sway
 stow .
 ```
 
-Check: `sway -C`, `fc-list | grep JetBrainsMono`.
+Check: `sway -C`, `fc-list | grep IntoneMono`.
 
 ## Work
 
@@ -64,4 +64,4 @@ Default: Rosé Pine (base, not Moon). Change: `regolith-look list`, `regolith-lo
 
 ## Stack
 
-Sway, Waybar, Rofi, Foot, Dunst, Swaylock/Swayidle, Swaybg, Grim/Slurp/Satty, wl-clipboard/cliphist, JetBrainsMono Nerd Font.
+Sway, Waybar, Rofi, Foot, Dunst, Swaylock/Swayidle, Swaybg, Grim/Slurp/Satty, wl-clipboard/cliphist, IntoneMono Nerd Font.

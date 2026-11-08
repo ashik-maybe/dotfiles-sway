@@ -5,7 +5,7 @@ configuration {
     display-run: " ";
     display-window: " ";
     display-combi: " ";
-    font: "JetBrainsMono Nerd Font Bold 11";
+    font: "IntoneMono Nerd Font Bold 11";
     sort: true;
     case-sensitive: false;
     kb-mode-next: "Shift+Right,Control+Tab";
@@ -24,7 +24,7 @@ configuration {
 window { height: 400px; border: 2px; border-color: @EB6F92; border-radius: 12px; background-color: @191724; text-color: @E0DEF4; }
 mainbox { background-color: transparent; children: [ "inputbar", "listview" ]; padding: 16px; spacing: 12px; }
 inputbar { background-color: @1F1D2E; text-color: @E0DEF4; border-radius: 8px; padding: 10px 14px; children: [ "prompt", "entry" ]; spacing: 8px; }
-prompt { background-color: transparent; text-color: @EB6F92; font: "JetBrainsMono Nerd Font Bold 13"; }
+prompt { background-color: transparent; text-color: @EB6F92; font: "IntoneMono Nerd Font Bold 13"; }
 entry { background-color: transparent; text-color: @E0DEF4; placeholder: "Regolith Launcher..."; placeholder-color: @6E6A86; }
 listview { background-color: transparent; columns: 1; lines: 7; cycle: true; dynamic: true; scrollbar: false; layout: vertical; fixed-height: true; spacing: 4px; }
 element { background-color: transparent; text-color: @E0DEF4; border-radius: 6px; padding: 8px 12px; spacing: 12px; cursor: pointer; orientation: horizontal; }

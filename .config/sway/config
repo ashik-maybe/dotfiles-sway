@@ -58,7 +58,7 @@ input "type:keyboard" { xkb_layout us; xkb_options grp:alt_shift_toggle }
 input "type:mouse" { accel_profile adaptive }
 
 # --- Decor — Regolith tactile (nord/theme) ---
-font pango:JetBrainsMono Nerd Font 9
+font pango:IntoneMono Nerd Font 9
 seat seat0 xcursor_theme Arc 24
 gaps inner 5
 gaps outer 0
